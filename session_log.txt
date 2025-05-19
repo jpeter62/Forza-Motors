@@ -1,0 +1,178 @@
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)
+Array
+(
+    [userid] => 40
+    [username] => ikka@12334
+    [role] => 2
+    [default_collection_point] => 
+)

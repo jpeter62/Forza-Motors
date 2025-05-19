@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <!-- meta data -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forza Motors - Car Listings</title>
+    
+    <!-- Linking CSS files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <section id="home" class="welcome-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="model-search-content">
+                        <form method="GET" action="">
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2 col-sm-12">
+                                    <div class="single-model-search">
+                                        <h2>Collection point</h2>
+                                        <div class="model-select-icon">
+                                            <select name="collection_point" class="form-control">
+                                                <option value="Kuttikanam">Kuttikanam</option>
+                                                <option value="Peermade">Peermade</option>
+                                                <option value="Elappara">Elappara</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="single-model-search">
+                                        <h2>Return point</h2>
+                                        <div class="model-select-icon">
+                                            <select name="return_point" class="form-control">
+                                                <option value="Kuttikanam">Kuttikanam</option>
+                                                <option value="Peermade">Peermade</option>
+                                                <option value="Elappara">Elappara</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-1 col-md-2 col-sm-12">
+                                    <div class="single-model-search">
+                                        <h2>Pick-up date</h2>
+                                        <div class="model-select-icon">
+                                            <input type="date" class="form-control" id="pickup_date" name="pickup_date" required>
+                                        </div>
+                                    </div>
+                                    <div class="single-model-search">
+                                        <h2>Drop-off date</h2>
+                                        <div class="model-select-icon">
+                                            <input type="date" class="form-control" id="dropoff_date" name="dropoff_date" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-12">
+                                    <div class="single-model-search text-center">
+                                        <button type="submit" class="welcome-btn model-search-btn">
+                                            Search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="car-listing">
+                        <?php
+                        if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['collection_point'])) {
+                            // Database connection details
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $dbname = "forza_motors";
+
+                            // Create connection
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+
+                            // Retrieve search parameters from GET request
+                            $collection_point = $conn->real_escape_string($_GET['collection_point']);
+                            $return_point = $conn->real_escape_string($_GET['return_point']);
+                            $pickup_date = $conn->real_escape_string($_GET['pickup_date']);
+                            $dropoff_date = $conn->real_escape_string($_GET['dropoff_date']);
+
+                            // Fetch available cars
+                            $sql = "
+                            SELECT c.id, c.name, c.image, c.transmission, c.year
+                            FROM cars c
+                            JOIN availability a ON c.id = a.car_id
+                            JOIN locations l1 ON a.location_id = l1.id
+                            LEFT JOIN bookings b ON c.id = b.car_id 
+                                AND (
+                                    (b.pickup_date BETWEEN '$pickup_date' AND '$dropoff_date') OR 
+                                    (b.dropoff_date BETWEEN '$pickup_date' AND '$dropoff_date') OR
+                                    ('$pickup_date' BETWEEN b.pickup_date AND b.dropoff_date) OR
+                                    ('$dropoff_date' BETWEEN b.pickup_date AND b.dropoff_date)
+                                )
+                            JOIN locations l2 ON b.location_id = l2.id
+                            WHERE l1.name = '$collection_point'
+                            AND (l2.name IS NULL OR l2.name = '$return_point')
+                            AND (b.id IS NULL OR (b.dropoff_date < '$pickup_date' OR b.pickup_date > '$dropoff_date'))
+                            GROUP BY c.id;
+                            ";
+
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<div class='car-box'>";
+                                    echo "<img src='" . $row['image'] . "' alt='" . $row['name'] . "'>";
+                                    echo "<h3>" . $row['name'] . "</h3>";
+                                    echo "<p>Transmission: " . $row['transmission'] . "</p>";
+                                    echo "<p>Year: " . $row['year'] . "</p>";
+                                    echo "</div>";
+                                }
+                            } else {
+                                echo "<p>No cars available for the selected criteria.</p>";
+                            }
+
+                            $conn->close();
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Including JS files -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>

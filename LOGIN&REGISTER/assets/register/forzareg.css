@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  background-size: cover;
+  background-color: #ffffff;
+  overflow: hidden; /* Prevents content from showing outside the body */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensures the body takes up the full height of the viewport */
+  margin: 0;
+}
+
+.login-box {
+  width: 350px;
+  background: rgba(44, 43, 43, 0.296); /* Semi-transparent background */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-box h2 {
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.textbox {
+  display:flex; /* Enable flexbox for the container */
+  justify-content: center; /* Center elements horizontally */
+  align-items: center; /* Center elements vertically (optional) */
+  position: center;
+  margin-bottom: 20px;
+}
+
+.textbox input {
+  width: 300px;;
+  align-items:center;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  background-color: #f2f2f2; 
+  color: #333; 
+  transition: border-color 0.3s ease;
+}
+
+.textbox input:focus {
+  outline: none;
+  border-color: #765a94;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #000000;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #535050;
+}
+h2 {
+  color: #000000;
+  margin-bottom: 6%;
+  margin-right: 6%;
+  text-align:center;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 15px;
+  color: #ffffff;
+}
+
+.register-link a {
+  text-align: center;
+  color:  #4101b6;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Additional Styles for Social Login Buttons */
+.social-login {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-login a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: #666;
+  margin: 0 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.social-login a:hover {
+  background: #666;
+  color: #fff;
+}
+
+  .forgot-password {
+      text-align: center;
+      margin-top: 15px;
+      color: #ffffff; /* Inherit color from original CSS */
+    }
+    
+    .forgot-password a {
+      color:   #4101b6; /* Change link color to blue */
+      text-decoration: none;
+    }
+    
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+    .login-page {
+      background-image: url('flogin.png');
+  }
+  
+  .register-page {
+      background-image: url('login-bg(1)');
+  }
